@@ -1,6 +1,6 @@
 {
   "name": "ember-cli-admin-languages",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Plugin for ember-cli-admin that adds multiple languages properties support",
   "directories": {
     "doc": "doc",
@@ -37,7 +37,12 @@
     "broccoli-static-compiler": "0.1.4"
   },
   "keywords": [
-    "ember-addon"
+    "ember-cli-admin",
+    "ember admin",
+    "admin",
+    "multilanguage",
+    "languages",
+    "localization"
   ],
   "ember-addon": {
     "configPath": "tests/dummy/config"
