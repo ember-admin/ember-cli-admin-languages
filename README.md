@@ -1,5 +1,6 @@
 # Ember-Cli-Admin-Languages
 
+[![Build Status](https://travis-ci.org/ember-admin/ember-cli-admin-languages.svg?branch=master)](https://travis-ci.org/ember-admin/ember-cli-admin-languages)
 [![npm version](https://badge.fury.io/js/ember-cli-admin-languages.svg)](http://badge.fury.io/js/ember-cli-admin-languages)
 
 Plugin for ember-cli-admin that adds multiple languages properties support
