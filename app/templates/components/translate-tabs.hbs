@@ -3,7 +3,7 @@
         <h3>{{attribute}}</h3>
         <ul class="nav nav-tabs" role="tablist">
             {{#each locale in locales}}
-                {{#view tabLinkView locale=locale attribute=attribute}}
+                {{#view tabLinkView locale=locale attribute=attribute locales=locales}}
                     <a {{bind-attr href=view.href}} role="tab" data-toggle="tab">
                         <span {{bind-attr class=view.localeClass}}></span>
                     </a>
@@ -13,7 +13,7 @@
 
         <div class="tab-content">
             {{#each locale in locales}}
-                {{#view tabContentView locale=locale attributeName=attribute model=model isTextArea=isTextArea withEditor=withEditor}}
+                {{#view tabContentView locale=locale attributeName=attribute model=model isTextArea=isTextArea withEditor=withEditor locales=locales}}
                     {{#if view.isTextArea}}
                         {{wysihtml-field model=view.model name=view.attribute withEditor=view.withEditor}}
                     {{else}}

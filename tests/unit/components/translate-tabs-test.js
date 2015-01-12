@@ -93,3 +93,44 @@ test('it renders with editor', function() {
 
   equal(component.$().find('.wysihtml5-toolbar').length, 4);
 });
+
+test('it renders with editor', function() {
+  expect(1);
+
+  var component = this.subject();
+
+  Ember.run(function(){
+    component.set('model', model);
+    component.set('locales', locales);
+    component.set('attribute', 'name');
+    component.set('isTextArea', true);
+    component.set('withEditor', true);
+  });
+
+  this.append();
+
+  equal(component.$().find('.wysihtml5-toolbar').length, 4);
+});
+
+test('it switches tabs', function() {
+  expect();
+
+  var component = this.subject();
+
+  Ember.run(function(){
+    component.set('model', model);
+    component.set('locales', locales);
+    component.set('attribute', 'name');
+    component.set('isTextArea', true);
+    component.set('withEditor', true);
+  });
+
+  this.append();
+
+  equal(component.$().find('.nav li:first').hasClass('active'), true);
+
+  component.$().find('.nav li a:last').click();
+
+  equal(component.$().find('.nav li:first').hasClass('active'), false);
+  equal(component.$().find('.nav li:last').hasClass('active'), true);
+});
