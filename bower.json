@@ -14,6 +14,6 @@
     "ember-qunit-notifications": "0.0.4",
     "qunit": "~1.15.0",
     "flag-icon-css": "0.6.4",
-    "bootstrap-sass-official": "3.2.0"
+    "bootstrap3-wysiwyg": "~0.3.3"
   }
 }
