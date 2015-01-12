@@ -37,6 +37,7 @@
     "broccoli-static-compiler": "0.1.4"
   },
   "keywords": [
+    "ember-addon",
     "ember-cli-admin",
     "ember admin",
     "admin",
