@@ -1,0 +1,26 @@
+<div class="panel panel-default">
+    <div class="panel-body">
+        <h3>{{attribute}}</h3>
+        <ul class="nav nav-tabs" role="tablist">
+            {{#each locale in locales}}
+                {{#view tabLinkView locale=locale attribute=attribute}}
+                    <a {{bind-attr href=view.href}} role="tab" data-toggle="tab">
+                        <span {{bind-attr class=view.localeClass}}></span>
+                    </a>
+                {{/view}}
+            {{/each}}
+        </ul>
+
+        <div class="tab-content">
+            {{#each locale in locales}}
+                {{#view tabContentView locale=locale attributeName=attribute model=model isTextArea=isTextArea withEditor=withEditor}}
+                    {{#if view.isTextArea}}
+                        {{wysihtml-field model=view.model name=view.attribute withEditor=view.withEditor}}
+                    {{else}}
+                        {{admin-input class="admin-attribute" model=view.model name=view.attribute}}
+                    {{/if}}
+                {{/view}}
+            {{/each}}
+        </div>
+    </div>
+</div>
