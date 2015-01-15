@@ -1,6 +1,6 @@
 {
   "name": "ember-cli-admin-languages",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Plugin for ember-cli-admin that adds multiple languages properties support",
   "directories": {
     "doc": "doc",
@@ -38,6 +38,7 @@
     "glob": "^4.0.5"
   },
   "keywords": [
+    "ember-addon",
     "ember-cli-admin",
     "ember admin",
     "admin",
