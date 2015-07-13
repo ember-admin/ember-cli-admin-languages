@@ -5,7 +5,7 @@ export default Ember.Component.extend({
     return this.get('locales') || [];
   }.property(),
 
-  tabLinkView: Ember.View.extend({
+  tabLinkView: Ember.Component.extend({
     tagName: 'li',
     classNameBindings: ['isActive:active:'],
     attributeBindings: ['role'],
@@ -29,7 +29,7 @@ export default Ember.Component.extend({
     }.property('locale')
   }),
 
-  tabContentView: Ember.View.extend({
+  tabContentView: Ember.Component.extend({
     classNameBindings: ['isActive:active:'],
     attributeBindings: ['role', 'id'],
     classNames: ['tab-pane'],

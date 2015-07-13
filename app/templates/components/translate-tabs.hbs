@@ -2,24 +2,24 @@
     <div class="panel-body">
         <h3>{{attribute}}</h3>
         <ul class="nav nav-tabs" role="tablist">
-            {{#each locale in locales}}
-                {{#view tabLinkView locale=locale attribute=attribute locales=locales}}
-                    <a {{bind-attr href=view.href}} role="tab" data-toggle="tab">
-                        <span {{bind-attr class=view.localeClass}}></span>
+            {{#each locales as |locale|}}
+                {{#tabLinkView locale=locale attribute=attribute locales=locales}}
+                    <a href={{href}} role="tab" data-toggle="tab">
+                        <span class={{localeClass}}></span>
                     </a>
-                {{/view}}
+                {{/tabLinkView}}
             {{/each}}
         </ul>
 
         <div class="tab-content">
-            {{#each locale in locales}}
-                {{#view tabContentView locale=locale attributeName=attribute model=model isTextArea=isTextArea withEditor=withEditor locales=locales}}
-                    {{#if view.isTextArea}}
-                        {{wysihtml-field model=view.model name=view.attribute withEditor=view.withEditor}}
+            {{#each locales as |locale|}}
+                {{#tabContentView locale=locale attributeName=attribute model=model isTextArea=isTextArea withEditor=withEditor locales=locales}}
+                    {{#if isTextArea}}
+                        {{wysihtml-field model=model name=attribute withEditor=withEditor}}
                     {{else}}
-                        {{admin-input class="admin-attribute" model=view.model name=view.attribute}}
+                        {{admin-input class="admin-attribute" model=model name=attribute}}
                     {{/if}}
-                {{/view}}
+                {{/tabContentView}}
             {{/each}}
         </div>
     </div>
