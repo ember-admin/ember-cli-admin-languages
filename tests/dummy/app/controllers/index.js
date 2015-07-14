@@ -1,6 +1,6 @@
 import Ember from 'ember';
 
-export default Ember.Controller.extend({
+export default Ember.Component.extend({
   locales: ['en', 'ru', 'de', 'fr'],
   stub: function(){
     return Ember.Object.create({
@@ -9,5 +9,5 @@ export default Ember.Controller.extend({
       name_fr: "Nom",
       name_ru: "Имя",
     });
-  }.property()
+  }.property();
 });

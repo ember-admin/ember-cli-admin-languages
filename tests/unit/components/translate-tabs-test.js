@@ -11,7 +11,9 @@ moduleForComponent('translate-tabs', 'TranslateTabsComponent', {
     'template:components/admin-input',
     'template:components/wysihtml-field',
     'component:tab-content-view',
-    'component:tab-link-view'
+    'component:tab-link-view',
+    'template:components/tab-content-view',
+    'template:components/tab-link-view'
   ]
 });
 
