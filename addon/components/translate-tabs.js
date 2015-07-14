@@ -2,8 +2,8 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   
-  locales: function() {
+  locales: Ember.computed(function() {
     return this.get('locales') || [];
-  }.property()
+  })
 
 });
