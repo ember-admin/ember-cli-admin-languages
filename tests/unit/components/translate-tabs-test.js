@@ -9,7 +9,9 @@ moduleForComponent('translate-tabs', 'TranslateTabsComponent', {
     'component:admin-input',
     'component:wysihtml-field',
     'template:components/admin-input',
-    'template:components/wysihtml-field'
+    'template:components/wysihtml-field',
+    'component:tab-content-view',
+    'component:tab-link-view'
   ]
 });
 

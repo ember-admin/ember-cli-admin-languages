@@ -1,23 +1,25 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-
+  tagName: 'li',
   classNameBindings: ['isActive:active:'],
-  attributeBindings: ['role', 'id'],
-  classNames: ['tab-pane'],
+  attributeBindings: ['role'],
 
-  role: 'tabpanel',
+  role: "presentation",
 
-  isActive: Ember.computed('locale', function(){
+  isActive: function(){
     return (this.get('locales') || [])[0] === this.get('locale');
-  }),
+  }.property('locale'),
 
-  id: Ember.computed('locale', function(){
-    return "%@-%@".fmt(this.get('locale'), this.get('attributeName'));
-  }),
+  href: function(){
+    return "#%@-%@".fmt(this.get('locale'), this.get('attribute'));
+  }.property('locale'),
 
-  attribute: Ember.computed('attributeName', 'locale', function(){
-    return '%@_%@'.fmt(this.get('attributeName'), this.get('locale'));
-  })
-
+  localeClass: function(){
+    var locale = this.get('locale');
+    if(locale === 'en'){
+      locale = "gb";
+    }
+    return 'flag-icon flag-icon-%@'.fmt(locale);
+  }.property('locale')
 });

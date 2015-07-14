@@ -3,22 +3,22 @@
         <h3>{{attribute}}</h3>
         <ul class="nav nav-tabs" role="tablist">
             {{#each locales as |locale|}}
-                {{#tabLinkView locale=locale attribute=attribute locales=locales}}
+                {{#tab-link-view locale=locale attribute=attribute locales=locales}}
                     <a href={{href}} role="tab" data-toggle="tab">
                         <span class={{localeClass}}></span>
                     </a>
-                {{/tabLinkView}}
+                {{/tab-link-view}}
             {{/each}}
         </ul>
         <div class="tab-content">
             {{#each locales as |locale|}}
-                {{#tabContentView locale=locale attributeName=attribute model=model isTextArea=isTextArea withEditor=withEditor locales=locales}}
+                {{#tab-content-view locale=locale attributeName=attribute model=model isTextArea=isTextArea withEditor=withEditor locales=locales}}
                     {{#if isTextArea}}
                         {{wysihtml-field model=model name=attribute withEditor=withEditor}}
                     {{else}}
                         {{admin-input class="admin-attribute" model=model name=attribute}}
                     {{/if}}
-                {{/tabContentView}}
+                {{/tab-content-view}}
             {{/each}}
         </div>
     </div>
