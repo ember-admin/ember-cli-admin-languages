@@ -1,6 +1,6 @@
 import Ember from 'ember';
 
-export default Ember.Component.extend({
+export default Ember.Controller.extend({
   locales: ['en', 'ru', 'de', 'fr'],
   stub: function(){
     return Ember.Object.create({
