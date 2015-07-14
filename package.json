@@ -37,7 +37,9 @@
     "ember-cli-qunit": "0.3.15",
     "ember-data": "1.13.4",
     "ember-export-application-global": "^1.0.2",
-    "ember-watson": "^0.5.9"
+    "ember-watson": "^0.5.9",
+    "ember-disable-prototype-extensions": "^1.0.0",
+    "ember-disable-proxy-controllers": "^1.0.0"
   },
   "dependencies": {
     "ember-cli-babel": "^5.0.0",

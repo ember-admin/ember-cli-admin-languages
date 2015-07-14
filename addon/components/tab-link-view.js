@@ -12,7 +12,9 @@ export default Ember.Component.extend({
   }),
 
   href: Ember.computed('locale', function(){
-    return "#%@-%@".fmt(this.get('locale'), this.get('attribute'));
+    var locale = this.get('locale');
+    var attribute = this.get('attribute');
+    return `#${locale}-${attribute}`;
   }),
 
   localeClass: Ember.computed('locale', function(){
@@ -20,6 +22,6 @@ export default Ember.Component.extend({
     if(locale === 'en'){
       locale = "gb";
     }
-    return 'flag-icon flag-icon-%@'.fmt(locale);
+    return `flag-icon flag-icon-${locale}`;
   })
 });

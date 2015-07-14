@@ -8,12 +8,13 @@ export default Ember.Component.extend({
     var self = this;
     var element = this.$().find('textarea').wysihtml5();
     var editor = element.data("wysihtml5").editor;
+    var name = self.get('name');
     editor.on('change', function(){
-      self.set('model.%@'.fmt(self.get('name')), editor.getValue());
+      self.set(`model.${name}`, editor.getValue());
     });
 
     editor.on('load', function(){
-      editor.setValue(self.get('model.%@'.fmt(self.get('name'))));
+      editor.setValue(self.get(`model.${name}`));
     });
   },
 

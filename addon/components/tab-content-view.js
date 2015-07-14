@@ -7,15 +7,20 @@ export default Ember.Component.extend({
 
   role: 'tabpanel',
 
+
   isActive: Ember.computed('locale', function(){
     return (this.get('locales') || [])[0] === this.get('locale');
   }),
 
   id: Ember.computed('locale', function(){
-    return "%@-%@".fmt(this.get('locale'), this.get('attributeName'));
+    let locale = this.get('locale');
+    let attributeName = this.get('attributeName');
+    return `${locale}-${attributeName}`;
   }),
 
   attribute: Ember.computed('attributeName', 'locale', function(){
-    return '%@_%@'.fmt(this.get('attributeName'), this.get('locale'));
+    let locale = this.get('locale');
+    let attributeName = this.get('attributeName');
+    return `${attributeName}_${locale}`;
   })
 });
