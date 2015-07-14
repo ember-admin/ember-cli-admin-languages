@@ -9,5 +9,5 @@ export default Ember.Controller.extend({
       name_fr: "Nom",
       name_ru: "Имя",
     });
-  }.property();
+  }.property()
 });
