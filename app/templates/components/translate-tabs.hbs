@@ -4,7 +4,7 @@
         <ul class="nav nav-tabs" role="tablist">
             {{#each locales as |locale|}}
                 {{#tab-link-view locale=locale attribute=attribute currentLocale=currentLocale action='setActive' as |link|}}
-                    <a href="#" role="tab">
+                    <a href="javascript:void(0);" role="tab">
                         <span class={{link.localeClass}}></span>
                     </a>
                 {{/tab-link-view}}
