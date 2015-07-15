@@ -2,7 +2,9 @@ module.exports = {
   normalizeEntityName: function() {},
 
   afterInstall: function() {
-    this.addBowerPackageToProject('flag-icon-css');
-    return this.addBowerPackageToProject('bootstrap3-wysiwyg');
+    this.addBowerPackagesToProject([
+      {name: "bootstrap3-wysiwyg", target: "~0.3.3"},
+      {name: "flag-icon-css", target: "0.6.4"}
+    ]);
   }
 };
