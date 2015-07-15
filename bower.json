@@ -1,8 +1,6 @@
 {
   "name": "ember-cli-admin-languages",
   "dependencies": {
-    "handlebars": "~2.0.0",
-    "jquery": "^1.11.1",
     "flag-icon-css": "0.6.4",
     "bootstrap3-wysiwyg": "~0.3.3",
     "jquery": "^1.11.1",
@@ -16,7 +14,6 @@
     "ember-qunit": "0.4.1",
     "ember-qunit-notifications": "0.0.7",
     "qunit": "~1.17.1",
-    "select2": "~3.5.2",
     "pretender": "~0.6.0",
     "bootstrap-sass-official": "~3.3.4",
     "typeahead.js": "~0.11.1",
@@ -25,9 +22,5 @@
     "ember-inflector": "~1.3.1",
     "lodash": "~3.7.0",
     "Faker": "~2.1.3"
-  },
-  "resolutions": {
-    "jquery": "^1.11.1",
-    "handlebars": ">= 2.0.0 < 3.0.0"
   }
 }
