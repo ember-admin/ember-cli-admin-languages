@@ -12,8 +12,8 @@ export default Ember.Component.extend({
     return (reverse) ? `${attributeName}_${locale}` : `${locale}-${attributeName}`;
   },
 
-  isActive: Ember.computed('locale', function(){
-    return (this.get('locales') || [])[0] === this.get('locale');
+  isActive: Ember.computed('locale', 'currentLocale', function(){
+    return this.get('locale') === this.get('currentLocale');
   }),
 
   id: Ember.computed('locale', function(){

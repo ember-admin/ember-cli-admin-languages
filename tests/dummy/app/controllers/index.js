@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-  locales: ['en', 'ru', 'de', 'fr'],
+  locales: Ember.A(['en', 'ru', 'de', 'fr']),
   stub: Ember.computed(function(){
     return Ember.Object.create({
       name_en: "Name",

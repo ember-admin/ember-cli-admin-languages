@@ -3,16 +3,16 @@
         <h3>{{attribute}}</h3>
         <ul class="nav nav-tabs" role="tablist">
             {{#each locales as |locale|}}
-                {{#tab-link-view locale=locale attribute=attribute locales=locales}}
-                    <a href={{href}} role="tab" data-toggle="tab">
-                        <span class={{localeClass}}></span>
+                {{#tab-link-view locale=locale attribute=attribute currentLocale=currentLocale action='setActive' as |link|}}
+                    <a href="#" role="tab">
+                        <span class={{link.localeClass}}></span>
                     </a>
                 {{/tab-link-view}}
             {{/each}}
         </ul>
         <div class="tab-content">
             {{#each locales as |locale|}}
-                {{#tab-content-view locale=locale attributeName=attribute model=model isTextArea=isTextArea withEditor=withEditor locales=locales as |attribute|}}
+                {{#tab-content-view locale=locale attributeName=attribute model=model isTextArea=isTextArea withEditor=withEditor currentLocale=currentLocale as |attribute|}}
                     {{#if isTextArea}}
                         {{wysihtml-field model=model name=attribute withEditor=withEditor}}
                     {{else}}

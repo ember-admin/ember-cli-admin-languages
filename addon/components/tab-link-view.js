@@ -7,21 +7,19 @@ export default Ember.Component.extend({
 
   role: "presentation",
 
-  isActive: Ember.computed('locale', function(){
-    return (this.get('locales') || [])[0] === this.get('locale');
-  }),
-
-  href: Ember.computed('locale', function(){
-    var locale = this.get('locale');
-    var attribute = this.get('attribute');
-    return `#${locale}-${attribute}`;
+  isActive: Ember.computed('locale', 'currentLocale', function(){
+    return this.get('locale') === this.get('currentLocale');
   }),
 
   localeClass: Ember.computed('locale', function(){
-    var locale = this.get('locale');
+    let locale = this.get('locale');
     if(locale === 'en'){
       locale = "gb";
     }
     return `flag-icon flag-icon-${locale}`;
-  })
+  }),
+
+  click() {
+    this.sendAction('action', this.get('locale'));
+  },
 });
