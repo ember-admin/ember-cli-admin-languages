@@ -3,7 +3,7 @@
   "dependencies": {
     "flag-icon-css": "0.6.4",
     "bootstrap3-wysiwyg": "~0.3.3",
-    "jquery": "^1.11.1",
+    "jquery": "2.1.4",
     "ember": "1.13.3",
     "ember-data": "1.13.4",
     "ember-resolver": "~0.1.12",
