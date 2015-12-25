@@ -44,7 +44,8 @@
     "ember-try": "~0.0.8"
   },
   "dependencies": {
-    "ember-cli-babel": "^5.1.5"
+    "ember-cli-babel": "^5.1.5",
+    "broccoli-funnel": "^1.0.1"
   },
   "keywords": [
     "ember-addon",
