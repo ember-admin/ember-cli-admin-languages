@@ -14,16 +14,18 @@ moduleForComponent('translate-tabs', 'TranslateTabsComponent', {
     'component:tab-link-view',
     'template:components/tab-content-view',
     'template:components/tab-link-view'
-  ]
+  ],
+  beforeEach: function () {
+    model = Ember.Object.create({
+      name_en: "Name",
+      name_de: "Der Name",
+      name_fr: "Nom",
+      name_ru: "Имя",
+    });
+  }
 });
 
-var model = Ember.Object.create({
-  name_en: "Name",
-  name_de: "Der Name",
-  name_fr: "Nom",
-  name_ru: "Имя",
-});
-
+var model;
 var locales = Ember.A(['en', 'ru', 'de', 'fr']);
 
 test('it renders tabs', function(assert) {
@@ -79,6 +81,69 @@ test('it shows model values', function(assert) {
   assert.equal(component.$().find('input:nth(1)').val(), "Имя");
   assert.equal(component.$().find('input:nth(2)').val(), "Der Name");
   assert.equal(component.$().find('input:nth(3)').val(), "Nom");
+});
+
+test('it changes model values via textarea', function(assert) {
+  assert.expect(1);
+
+  let component = this.subject();
+
+  Ember.run(function(){
+    component.set('model', model);
+    component.set('locales', locales);
+    component.set('attribute', 'name');
+    component.set('isTextArea', true);
+  });
+
+  this.render();
+ 
+  const newName = "newName";
+
+  component.$('textarea:nth(0)').val(newName);
+  component.$('textarea:nth(0)').change();
+  assert.equal(component.get('model.name_en'), newName);
+});
+
+test('it changes model values via input', function(assert) {
+  assert.expect(1);
+
+  let component = this.subject();
+
+  Ember.run(function(){
+    component.set('model', model);
+    component.set('locales', locales);
+    component.set('attribute', 'name');
+  });
+
+  this.render();
+ 
+  const newName = "newName";
+
+  component.$('input:nth(0)').val(newName);
+  component.$('input:nth(0)').change();
+  assert.equal(component.get('model.name_en'), newName);
+});
+
+test('it changes model values via editor', function(assert) {
+  assert.expect(1);
+
+  let component = this.subject();
+
+  Ember.run(function(){
+    component.set('model', model);
+    component.set('locales', locales);
+    component.set('attribute', 'name');
+    component.set('isTextArea', true);
+    component.set('withEditor', true);
+  });
+
+  this.render();
+ 
+  const newName = "newName";
+  const editor = component.$('textarea:nth(0)').data("wysihtml5").editor;
+  editor.setValue(newName);
+  Ember.run(editor, 'fire', 'change');
+  assert.equal(component.get('model.name_en'), newName);
 });
 
 test('it renders textarea', function(assert) {

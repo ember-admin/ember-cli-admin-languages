@@ -5,23 +5,24 @@ export default Ember.Component.extend({
     if(!this.get('withEditor')){
       return;
     }
-    var self = this;
-    var element = this.$().find('textarea').wysihtml5();
-    var editor = element.data("wysihtml5").editor;
-    var name = self.get('name');
-    editor.on('change', function(){
-      self.set(`model.${name}`, editor.getValue());
+    const element = this.$().find('textarea').wysihtml5();
+    const editor = element.data("wysihtml5").editor;
+    let name = this.get('name');
+    editor.on('change', () => {
+      this.set(`model.${name}`, editor.getValue());
     });
 
-    editor.on('load', function(){
-      editor.setValue(self.get(`model.${name}`));
+    editor.on('load', () => {
+      editor.setValue(this.get(`model.${name}`));
     });
   },
-
-  value: Ember.computed('name', 'model', function(key, value) {
-    if (arguments.length > 1) {
-      return this.get('model').set(this.get('name'), value);
+  value: Ember.computed('model','name', {
+    get: function() {
+      return this.get(`model.${this.get('name')}`);
+    },
+    set: function(key, value) {
+      this.set(`model.${this.get('name')}`, value);
+      return value;
     }
-    return this.get('model').get(this.get('name'));
   })
 });
